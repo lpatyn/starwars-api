@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class EntityDTO {
+public class CharacterDTO {
 
     private int id;
     private String name;

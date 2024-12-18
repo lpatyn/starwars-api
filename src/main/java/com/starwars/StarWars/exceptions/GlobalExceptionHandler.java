@@ -10,11 +10,11 @@ import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import java.util.Objects;
 
-@ControllerAdvice()
+@ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(EntityNotFoundException.class)
-    public ResponseEntity<ErrorDTO> entityNotFound(EntityNotFoundException e) {
+    @ExceptionHandler(CharacterNotFoundException.class)
+    public ResponseEntity<ErrorDTO> entityNotFound(CharacterNotFoundException e) {
         return new ResponseEntity<>(new ErrorDTO(404, "Character not found", "" + e.getValue(), e.getMessage()), HttpStatus.NOT_FOUND);
     }
 
