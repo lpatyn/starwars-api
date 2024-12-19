@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.starwars.StarWars.entities.SWCharacter;
 import com.starwars.StarWars.repositories.interfaces.ICharacterRepository;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.ResourceUtils;
 
 import java.io.File;
 import java.net.URL;
