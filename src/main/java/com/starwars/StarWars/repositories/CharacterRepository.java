@@ -7,6 +7,8 @@ import com.starwars.StarWars.repositories.interfaces.ICharacterRepository;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.List;
@@ -56,12 +58,15 @@ public class CharacterRepository implements ICharacterRepository {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            URL res = getClass().getClassLoader().getResource("starwars.json");
+            String filePath = "starwars.json";
 
-            assert res != null;
-            File file = Paths.get(res.toURI()).toFile();
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream(filePath);
 
-            characterList = mapper.readValue(file, new TypeReference<>() {});
+            if (inputStream == null) {
+                throw new FileNotFoundException(filePath + " not found in resources folder");
+            }
+
+            characterList = mapper.readValue(inputStream, new TypeReference<List<SWCharacter>>() {});
         } catch (Exception e){
             System.out.println("File not found. " + e.getMessage());
         }
