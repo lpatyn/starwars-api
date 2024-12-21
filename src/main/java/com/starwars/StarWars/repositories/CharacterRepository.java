@@ -6,11 +6,8 @@ import com.starwars.StarWars.entities.SWCharacter;
 import com.starwars.StarWars.repositories.interfaces.ICharacterRepository;
 import org.springframework.stereotype.Repository;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.net.URL;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
