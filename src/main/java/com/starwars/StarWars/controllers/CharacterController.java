@@ -20,6 +20,7 @@ public class CharacterController {
         this.characterService = characterService;
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping()
     ResponseEntity<List<CharacterDTO>> find(
             @Nullable @RequestParam String name,
@@ -30,6 +31,7 @@ public class CharacterController {
         return new ResponseEntity<>(characterService.find(name, homeworld, species, gender), HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/{id}")
     ResponseEntity<CharacterDTO> findById(@PathVariable int id) {
         return new ResponseEntity<>(characterService.findById(id), HttpStatus.OK);
